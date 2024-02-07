@@ -44,18 +44,17 @@ useQuery({
 
 ## Query fetching indicators
 
-````tsx
+```tsx
 <main>
-      <h1>Pokemon Lists:</h1>
-      <div>
-        {data.map((item) => (
-          <div key={item.name}>{item.name}</div>
-        ))}
-      </div>
-      <div>{isFetching ? 'Updating...' : null}</div>
-    </main>
-    ```
-````
+  <h1>Pokemon Lists:</h1>
+  <div>
+    {data.map((item) => (
+      <div key={item.name}>{item.name}</div>
+    ))}
+  </div>
+  <div>{isFetching ? 'Updating...' : null}</div>
+</main>
+```
 
 ```tsx
 const { isLoading, isError, data, error, isFetching } = useQuery({
