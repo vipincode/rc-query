@@ -1,3 +1,4 @@
+```tsx
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import delay from 'delay';
@@ -26,7 +27,6 @@ const Posts = ({ setPostId }: Props) => {
       return true;
     },
     //  refetchOnReconnect: increment,
-    gcTime: 1000,
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -57,3 +57,4 @@ const Posts = ({ setPostId }: Props) => {
 };
 
 export default Posts;
+```

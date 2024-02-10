@@ -1,3 +1,29 @@
+# Introduction
+
+- In previous we load all post data, and get individual data by clicking on link, and we see data loading
+- In this duration we notice we have all data loaded in cache all ready but it fetch the background and data loading
+- So we can use available data for one query to initial data for other.
+- But note that this is not case for every situation, but if you do have data already available, then a trick react query provide that you can use one query data to initial data for other query.
+
+[See docs for more information](https://tkdodo.eu/blog/seeding-the-query-cache)
+
+## QueryClient
+
+The `QueryClient` can be used to interact with a cache:
+
+```tsx
+const { data, isLoading, isError, error, isFetching } = useQuery({
+  queryKey: ['post', postId],
+  queryFn: () => axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`).then((res) => res.data),
+  initialData: () => console.log(queryClient.getQueryData(['posts']), 'Data'),
+});
+```
+
+[More Detail See the Docs](https://tanstack.com/query/latest/docs/reference/QueryClient)
+
+## How get cache data, And seed
+
+```tsx
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -55,3 +81,4 @@ const Post = ({ postId, setPostId }: Props) => {
 };
 
 export default Post;
+```
