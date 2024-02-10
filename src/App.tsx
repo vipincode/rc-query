@@ -1,9 +1,9 @@
-import MyPost from './components/MyPost';
+import PostPage from './PostPage';
 
 function App() {
   return (
     <>
-      <MyPost />
+      <PostPage />
     </>
   );
 }
